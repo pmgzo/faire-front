@@ -3,16 +3,13 @@
 @tailwind utilities;
 
 :root {
+  background: white;
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0;
   }
 }
 
@@ -33,18 +30,12 @@ body {
 }
 
 @font-face {
-  font-family: 'InterBold';
+  font-family: "InterBold";
   font-weight: 600;
-  /* font-weight: 500; */
-
-  /* font-size: small */
-  src: url(../../public/Inter-VariableFont_slnt,wght.ttf) format('truetype');
+  src: url(../../public/Inter-VariableFont_slnt,wght.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Inter';
-  /* font-weight: 500; */
-
-  /* font-size: small */
-  src: url(../../public/Inter-VariableFont_slnt,wght.ttf) format('truetype');
+  font-family: "Inter";
+  src: url(../../public/Inter-VariableFont_slnt,wght.ttf) format("truetype");
 }
