@@ -40,6 +40,12 @@ body {
 }
 
 @font-face {
+  font-family: "InterThin";
+  font-weight: 300;
+  src: url(../../public/Inter-VariableFont_slnt,wght.ttf) format("truetype");
+}
+
+@font-face {
   font-family: "Inter";
   src: url(../../public/Inter-VariableFont_slnt,wght.ttf) format("truetype");
 }

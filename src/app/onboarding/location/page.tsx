@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import AddIcon from "@/images/add.svg";
-import RmIcon from "@/images/remove.svg";
+import RemoveIcon from "@/components/icons/removeIcon";
 
 enum SwedenRegion {
   Stockholm = "Stockhom Region",
@@ -85,12 +85,12 @@ export default function Page() {
               .map((value) => (
                 <li
                   key={value}
-                  className="bg-[#8600BD] opacity-50 w-fit rounded-full p-4 flex"
+                  className="bg-violet opacity-50 w-fit rounded-full p-4 flex"
                   onClick={() =>
                     setRegionsList(toggleMapSelection(regionsList, value))
                   }
                 >
-                  <Image width="15" src={RmIcon} alt="remove region" />
+                  <RemoveIcon />
                   <div
                     className="font-['Inter'] text-white text-sm"
                     onClick={() =>
@@ -109,12 +109,13 @@ export default function Page() {
               .filter((key) => !regionsList.get(key))
               .map((value) => (
                 <li
-                  className="bg-[#8600BD] w-fit rounded-full p-4 flex"
+                  className="bg-violet w-fit rounded-full p-4 flex"
                   onClick={() =>
                     setRegionsList(toggleMapSelection(regionsList, value))
                   }
                 >
-                  <Image width="15" src={AddIcon} alt="add region" />
+                  {/* <Image width="15" src={AddIcon} alt="add region" /> */}
+                  <Image src={AddIcon} alt="add region" />
                   <div
                     className="font-['Inter'] text-white text-sm"
                     key={value}

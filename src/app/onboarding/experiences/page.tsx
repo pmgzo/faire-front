@@ -1,60 +1,39 @@
-'use client';
+"use client";
 
-import { useState } from "react";
-import DatePicker from "react-date-picker";
-import 'react-date-picker/dist/DatePicker.css';
-import 'react-calendar/dist/Calendar.css';
+import Image from "next/image";
 
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
-
+import ExperienceElem from "@/components/experienceElement";
+import AddIcon from "@/components/icons/addIcon";
 
 // TODO: state react hook-form
 export default function Page() {
-  const [startDate, setStartDate] = useState<Value>(null);
-  const [endDate, setEndDate] = useState<Value>(null);
-
   return (
-    <div className="mt-10 w-full">
-      <h1 className="font-['InterBold'] text-[#8600BD] text-xl grid justify-items-center">
-        Experiences
-      </h1>
-
-      <div className="ml-20 mt-10">
-        <div className="font-['InterBold'] text-[#8600BD] text-lg">
-          New experiences
-        </div>
-
-        <div className="flex space-x-6">
-          <div className="flex flex-col space-y-6">
-            <input
-              placeholder="Company name*"
-              className="mt-10 p-6 rounded-t-lg bg-[#FAF9F9] w-[20rem]"
-            />
-            <input
-              placeholder="Role*"
-              className="mt-10 p-6 rounded-t-lg bg-[#FAF9F9] w-[20rem]"
-            />
-            <div className="bg-[#FAF9F9] p-6 rounded-t-lg">
-              <div className="text-[#9CA3AF]">Start Period*</div>
-              <DatePicker className="w-full" onChange={setStartDate} value={startDate} />
+    <div className="w-full flex justify-center mt-10">
+      <div>
+        <h1 className="font-['InterBold'] text-violet text-lg">
+          Your experiences
+        </h1>
+        <button className="bg-violet w-[20rem] p-3 rounded-lg mt-4">
+          <div className="flex justify-center">
+            <div className="flex flex-col justify-center text-white text-sm">
+              Add new experience
             </div>
-            <div className="bg-[#FAF9F9] p-6 rounded-t-lg">
-              <div className="text-[#9CA3AF]">End Period*</div>
-              <DatePicker className="w-full" onChange={setEndDate} value={endDate} />
-            </div>
-            
           </div>
-
-          <textarea
-            onResize={undefined}
-            placeholder="Description*"
-            className="mt-10 p-6 rounded-t-lg bg-[#FAF9F9] w-[25rem] h-[full]"
-          />
-        </div>
-
-        {/* date */}
+        </button>
+        <ul className="mt-2 space-y-2">
+          {[...Array.from("0123456789").values()].map((key) => (
+            <li id={key}>
+              <ExperienceElem
+                addedWithLinkedin={true}
+                startDate={new Date("09-11-2024")}
+                endDate={new Date("09-20-2024")}
+                companyName="Company Name"
+                roleName="Role Name"
+                onRemoval={() => console.log("You've removed this item")}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
